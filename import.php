@@ -52,6 +52,14 @@ function santander()
                 $camposs = implode(", ", $camposr);    //Nos da un string
                 $bvaluess = implode(", ", $bvaluesr);
                 if ($values != null) {
+                    //Campo único
+                    $camposs = $camposs.", referencia";
+                    $bvaluess = $bvaluess.", :referencia";
+                    $values[':referencia'] = 'santander';
+                    foreach($values as $val) {
+                        $values[':referencia'] = $values[':referencia'].$val; 
+                    }     
+                    //Insertamos           
                     insert($camposs, $bvaluess, $values);
                 }
                 $m = 0;
@@ -104,6 +112,14 @@ function caixa()
                 $camposs = implode(", ", $camposr);    //Nos da un string
                 $bvaluess = implode(", ", $bvaluesr);
                 if ($values != null) {
+                     //Campo único
+                     $camposs = $camposs.", referencia";
+                     $bvaluess = $bvaluess.", :referencia";
+                     $values[':referencia'] = 'lacaixa';
+                     foreach($values as $val) {
+                         $values[':referencia'] = $values[':referencia'].$val; 
+                     }     
+                     //Insertamos   
                     insert($camposs, $bvaluess, $values);
                 }
                 $m = 0;
@@ -154,6 +170,14 @@ function bbva()
                 $camposs = implode(", ", $camposr);    //Nos da un string
                 $bvaluess = implode(", ", $bvaluesr);
                 if ($values != null) {
+                     //Campo único
+                     $camposs = $camposs.", referencia";
+                     $bvaluess = $bvaluess.", :referencia";
+                     $values[':referencia'] = 'bbva';
+                     foreach($values as $val) {
+                         $values[':referencia'] = $values[':referencia'].$val; 
+                     }     
+                     //Insertamos   
                     insert($camposs, $bvaluess, $values);
                 }
                 $l = 0;

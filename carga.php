@@ -22,11 +22,11 @@ echo "      <table id='datos' class='table'>
                 <tbody>";
                         foreach ($res as $key) {
                             echo "<tr>";
-                            for ($i=1; $i<=10; $i++) {
+                            for ($i=2; $i<=11; $i++) {
                                 echo "<td>$key[$i]</td>";                                
                             }                        
 echo                            "</tr>"; 
-                            $saldo += $key[7];
+                            $saldo += $key[8];
                         }
 echo "                                     
                 </tbody>

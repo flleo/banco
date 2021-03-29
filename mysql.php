@@ -18,7 +18,7 @@ function carga()
 {
     global $connect;
     $conn = $connect;
-    $query = "SELECT * FROM movimientos";
+    $query = "SELECT * FROM movimientos ORDER BY fecha_valor DESC";
     $stmt = $conn->prepare($query);    
     $stmt->execute();
     $results = $stmt->fetchAll();
