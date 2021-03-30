@@ -68,7 +68,6 @@ $(document).ready(function() {
                 $('#cargar-btn').val('Cargando...');
             },
             success: function(data) {
-                console.log(data);
                 $('#datos').html(data);
                 $('#cargar-btn').attr('disabled', false);
                 $('#cargar-btn').val('Movimientos');

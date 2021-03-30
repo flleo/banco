@@ -2,6 +2,7 @@
 
 include 'connect.php';
 
+
 $connect = connect();
 
 function saldo() {
@@ -30,16 +31,17 @@ function insert($icampos,$ivalues,$iivalues)
 {
     global $connect;
     $conn = $connect;
+    $res=false;
     $query = " INSERT INTO movimientos ($icampos) VALUES 
     ($ivalues) ";                     
     $statement = $conn->prepare($query);
     try {
-        $statement->execute($iivalues);
+        $res = $statement->execute($iivalues);   
     } catch (PDOExecption $e) {
         $conn->rollback();
         print "Error!: " . $e->getMessage() . "</br>";
     }      
-
+    return $res;
 }
 
 

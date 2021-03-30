@@ -4,7 +4,7 @@
 //import.php
 
 include 'vendor/autoload.php';
-
+$message='';
 
 try {
     if ($_FILES["import_excel"]["name"] != '') {
@@ -19,13 +19,16 @@ try {
             $file_type = \PhpOffice\PhpSpreadsheet\IOFactory::identify($file_name);
             $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($file_type);
             $spreadsheet = $reader->load($file_name);
-            //Hola excel 0
-            $hojaActual = $spreadsheet->getSheet(0);
-            $letraMayorDeColumna = $hojaActual->getHighestColumn();
-            $csize = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($letraMayorDeColumna);
-            $rsize = $hojaActual->getHighestRow();
-            
-            $message = '<div class="alert alert-success">Data Imported Successfully</div>';
+            if ($spreadsheet != null) {
+                //Hola excel 0
+                $hojaActual = $spreadsheet->getSheet(0);
+                $letraMayorDeColumna = $hojaActual->getHighestColumn();
+                $csize = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($letraMayorDeColumna);
+                $rsize = $hojaActual->getHighestRow();
+                $message = '<div class="alert alert-success">Data Imported Successfully</div>';
+            } else {
+                $message = '<div class="alert alert-danger">No se pudo importar el archivo</div>';
+            }
         } else {
             $message = '<div class="alert alert-danger">Only .xls .csv or .xlsx file allowed</div>';
         }
@@ -35,7 +38,7 @@ try {
 } catch (PDOExecption $e) {
     print "Error!: " . $e->getMessage() . "</br>";
 }
-echo $message;
+
+
 
 ?>
-
