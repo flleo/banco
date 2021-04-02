@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="max-width:1300px;">
         <br />
         <h3 align="center">Movimientos Bancarios</h3>
         <br />
