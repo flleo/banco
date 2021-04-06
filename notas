@@ -1,2 +1,23 @@
 https://parzibyte.me/blog/2019/02/14/leer-archivo-excel-php-phpspreadsheet/#El_tipo_de_dato_celda_o_Cell
 https://www.baulphp.com/importar-archivo-de-excel-a-mysql-usando-php/
+
+
+Viendo los logs:
+
+PHP Fatal error:  Uncaught Error: Class 'ZipArchive' not found in /home/timado1practicas/public_html/excel/vendor/SpreadsheetReader_XLSX.php:217
+
+Al final viendo los logs, vemos que el problema es que esta desactivado en php el acceso a archivos zip que requiere SpreadsheetReader_XLSX, 
+hay que activarlo de alguna forma o instalar php-zip
+
+https://stackoverflow.com/questions/3872555/fatal-error-class-ziparchive-not-found-in
+https://github.com/PHPOffice/PhpSpreadsheet/issues/160
+
+Lo he intentado activar desde cPanel pero no ha dado resultado.
+
+| Domain: practicas1.timadores.com
+| Ip: 37.59.34.106 (n)
+| HasCgi: n
+| UserName: timado1practicas
+| PassWord: Practicas2021
+
+https://practicas1.timadores.com:2083/
